@@ -1,0 +1,508 @@
+/* Genel Stil */
+body {
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.top-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  background-color: #fff;
+}
+
+.logo-title-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  /* Logo ve yazı arasındaki boşluk */
+}
+
+.logo {
+  width: 50px;
+  height: auto;
+}
+
+.site-title {
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+}
+
+/* Header */
+.top-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 15px;
+  background-color: black;
+  color: white;
+}
+
+.top-header .logo-container img {
+  width: 60px;
+  height: auto;
+}
+
+.top-header nav {
+  flex-grow: 1;
+  text-align: center;
+}
+
+.top-header .nav-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.top-header .nav-links li {
+  margin: 0 15px;
+}
+
+.top-header .nav-links a {
+  text-decoration: none;
+  color: white;
+  font-size: 1.1em;
+  font-weight: bold;
+}
+
+.top-header .user-options {
+  display: flex;
+  align-items: center;
+}
+
+.top-header .user-options .login-btn,
+.top-header .user-options .cart-icon {
+  margin-left: 15px;
+  color: white;
+  text-decoration: none;
+  font-size: 1.2em;
+}
+
+/*  Başlıklar */
+h1,
+h2 {
+  font-weight: 700;
+  /* Kalın yazı */
+  color: black;
+  /* Koyu gri tonları */
+  text-align: center;
+  /* Ortaya hizala */
+}
+
+h3,
+h4 {
+  font-weight: 600;
+  /* Biraz daha ince kalınlık */
+  color: black;
+  /* Koyu mavi tonları */
+  text-align: center;
+  /* Ortaya hizala */
+}
+
+/*  Navbar (Navigasyon Çubuğu) */
+nav {
+  background-color: black;
+  /* Koyu mavi arka plan */
+  padding: 10px 0;
+  /* Üst-alt boşluk */
+  text-align: center;
+  /* İçeriği ortala */
+}
+
+nav ul {
+  list-style: none;
+  /* Liste noktalarını kaldır */
+  padding: 0;
+  margin: 0;
+}
+
+nav ul li {
+  display: inline-block;
+  /* Menü öğelerini yatay hizala */
+  margin: 0 20px;
+  /* Öğeler arasında boşluk bırak */
+}
+
+nav ul li a {
+  color: white;
+  /* Beyaz metin */
+  text-decoration: none;
+  /* Alt çizgiyi kaldır */
+  font-size: 1.2em;
+  /* Yazı boyutunu büyüt */
+}
+
+nav ul li a:hover {
+  color: white;
+  /* Üzerine gelince turuncu renk */
+}
+
+/*  Menü Bölümü */
+.menu-section {
+  padding: 40px 20px;
+  /* İçeriğe geniş boşluk ekler */
+  background-color: #f4f4f4;
+  /* Krem bej tonu */
+}
+
+/*  Menü Konteyneri */
+.menu-container {
+  display: flex;
+  /* Öğeleri yatay hizalar */
+  flex-wrap: wrap;
+  /* Küçük ekranlarda alt alta gelmesini sağlar */
+  justify-content: space-around;
+  /* Öğeleri eşit aralıklarla hizala */
+}
+
+/*  Menü Kartları */
+.menu-item {
+  background-color: white;
+  /* Kart arka planı beyaz */
+  border-radius: 10px;
+  /* Köşeleri yuvarlat */
+  margin: 15px;
+  /* Kenar boşluğu ekle */
+  padding: 20px;
+  /* İç boşluk ekle */
+  width: 280px;
+  /* Kart genişliği */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  /* Hafif gölge efekti */
+  text-align: center;
+  /* İçeriği ortala */
+  transition: transform 0.3s ease;
+  /* Hover efekti için geçiş süresi */
+}
+
+.menu-item:hover {
+  transform: scale(1.05);
+  /* Hover yapıldığında kart büyür */
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2);
+  /* Daha belirgin gölge efekti */
+  background-color: white;
+  /* Hover durumunda arka plan rengi turuncuya döner */
+}
+
+/*  Menü Kartı Görselleri */
+.menu-item img {
+  width: 100%;
+  /* Kart genişliğine tam oturmasını sağlar */
+  height: 200px;
+  /* Görsel yüksekliği belirlenir */
+  object-fit: cover;
+  /* Görsellerin bozulmadan kesilmesini sağlar */
+  border-radius: 10px;
+  /* Köşeleri yuvarlatır */
+}
+
+/*  Menü Kartı Başlık ve Açıklamalar */
+.menu-item h3 {
+  margin-top: 15px;
+  /* Üst boşluk ekle */
+  font-size: 1.6em;
+  /* Başlık boyutunu büyüt */
+  color: black;
+  /* Koyu gri tonları */
+}
+
+.menu-item p {
+  font-size: 1.1em;
+  /* Açıklama metni boyutu */
+  color: black;
+  /* Açık gri metin */
+  margin-top: 10px;
+  /* Üst boşluk ekle */
+}
+
+/*  Footer (Alt Kısım) */
+footer {
+  background-color: black;
+  /* Koyu mavi arka plan */
+  color: white;
+  /* Beyaz metin */
+  text-align: center;
+  /* Ortaya hizala */
+  padding: 20px 0;
+  /* Üst-alt boşluk */
+}
+
+/*  Responsive (Mobil Uyumlu Tasarım) */
+@media (max-width: 768px) {
+  .menu-container {
+    flex-direction: column;
+    /* Küçük ekranlarda menü öğeleri alt alta gelir */
+    align-items: center;
+    /* Öğeleri ortaya hizala */
+  }
+
+  .menu-item {
+    width: 90%;
+    /* Küçük ekranlarda genişliği artır */
+    margin-bottom: 30px;
+    /* Alt boşluk ekle */
+  }
+
+  .menu-item .price {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #e67e22;
+    /* Turuncu fiyat rengi */
+    margin-top: 10px;
+  }
+}
+
+.add-to-cart {
+  margin-top: 15px;
+  padding: 10px 20px;
+  background-color: #ffcc00;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1em;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 4px 10px rgba(255, 111, 0, 0.3);
+}
+
+.add-to-cart .icon {
+  font-size: 1.2em;
+}
+
+.add-to-cart:hover {
+  background: linear-gradient(45deg, #e65100, #ff6f00);
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(255, 111, 0, 0.5);
+}
+
+/* Toast bildirimi */
+.toast-hidden {
+  display: none;
+}
+
+.toast-visible {
+  display: block;
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #28a745;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 16px;
+  z-index: 9999;
+  opacity: 0;
+  animation: fadeInOut 2s forwards;
+}
+
+@keyframes fadeInOut {
+  0% {
+    opacity: 0;
+  }
+
+  30% {
+    opacity: 1;
+  }
+
+  70% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+/* logout-btn butonunun stilini düzenle */
+.logout-btn {
+  text-decoration: none;
+  /* Altını çizme */
+  color: #fff;
+  /* Yazı rengini beyaz yap */
+  background-color: black;
+  /* Çıkış butonunun kırmızı arka plan rengi */
+  padding: 10px 20px;
+  /* Butonun iç boşluğu */
+  border-radius: 5px;
+  /* Kenarlarını yuvarlak yap */
+  font-weight: bold;
+  /* Yazıyı kalın yap */
+}
+
+.logout-btn:hover {
+  background-color: #d32f2f;
+  /* Hover durumunda koyu kırmızı arka plan */
+  color: #fff;
+  /* Hover durumunda beyaz yazı rengi */
+}
+
+.filter-bar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  margin: 20px auto;
+  max-width: 800px;
+  padding: 10px;
+}
+
+#search-input {
+  flex: 2;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 1em;
+  transition: 0.3s;
+}
+
+#search-input:focus {
+  outline: none;
+  border-color: #f57c00;
+  box-shadow: 0 0 5px rgba(245, 124, 0, 0.5);
+}
+
+
+#categoryButtons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+.category-btn {
+  padding: 8px 16px;
+  border: none;
+  background-color: #d9534f;
+  color: white;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.category-btn.active {
+  background-color: #5cb85c;
+}
+
+/* Kategori Butonları */
+#category-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+#category-buttons button {
+  padding: 10px 18px;
+  background: linear-gradient(to right, #ff6a00, #ee0979);
+  color: white;
+  border: none;
+  border-radius: 25px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  font-size: 1em;
+}
+
+#category-buttons button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  background: linear-gradient(to right, #ee0979, #ff6a00);
+}
+
+#category-buttons button:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(255, 106, 0, 0.3);
+}
+
+/* Kategori Butonları */
+#category-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+#category-buttons button {
+  padding: 10px 18px;
+  background: linear-gradient(to right, black, white);
+  color: white;
+  border: none;
+  border-radius: 25px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  font-size: 1em;
+}
+
+#category-buttons button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  background: linear-gradient(to right, white, black);
+}
+
+#category-buttons button:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(255, 106, 0, 0.3);
+}
+
+#category-buttons button.active {
+  background: #ff6a00;
+  color: #fff;
+  font-weight: bold;
+  box-shadow: 0 0 10px rgba(255, 106, 0, 0.6);
+}
+
+.nav-links li a:hover {
+  color: #ffcc00;
+}
+
+.search-sort-wrapper {
+  display: flex;
+  gap: 10px;
+  width: 100%;
+  justify-content: center;
+}
+
+#sort-select {
+  flex: 1;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 1em;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+/* Kategori Butonları */
+.category-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+.category-buttons button {
+  background-color: #f57c00;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 0.95em;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.category-buttons button:hover {
+  background-color: #e65100;
+}

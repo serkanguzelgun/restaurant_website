@@ -1,0 +1,546 @@
+/* Genel Stil */
+body {
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Genel navbar stili */
+.navbar {
+  width: 100%;
+  background-color: #333;
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+/* Navbar içindeki bağlantılar */
+.navbar a {
+  float: left;
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 16px 20px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+/* Hover efekti */
+.navbar a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+
+.top-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  background-color: #fff;
+}
+
+.logo-title-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  /* Logo ve yazı arasındaki boşluk */
+}
+
+.logo {
+  width: 50px;
+  height: auto;
+}
+
+.site-title {
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+}
+
+/* Header */
+.top-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 15px;
+  background-color: black;
+  color: white;
+}
+
+.top-header .logo-container img {
+  width: 60px;
+  height: auto;
+}
+
+.top-header nav {
+  flex-grow: 1;
+  text-align: center;
+}
+
+.top-header .nav-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.top-header .nav-links li {
+  margin: 0 15px;
+}
+
+.top-header .nav-links a {
+  text-decoration: none;
+  color: white;
+  font-size: 1.1em;
+  font-weight: bold;
+}
+
+.top-header .user-options {
+  display: flex;
+  align-items: center;
+}
+
+.top-header .user-options .login-btn,
+.top-header .user-options .cart-icon {
+  margin-left: 15px;
+  color: white;
+  text-decoration: none;
+  font-size: 1.2em;
+}
+
+/* Kampanya Banner */
+.kampanya-banner {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #000;
+}
+
+.kampanya-banner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(70%);
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.kampanya-text {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  color: white;
+  max-width: 90%;
+  padding: 20px;
+}
+
+.kampanya-text h2 {
+  font-size: 2.5em;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.kampanya-text p {
+  font-size: 1.3em;
+  margin-bottom: 15px;
+}
+
+.kampanya-btn {
+  background-color: #ffcc00;
+  color: black;
+  padding: 12px 25px;
+  font-size: 1.2em;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: 0.3s;
+  display: inline-block;
+  text-align: center;
+  white-space: nowrap;
+}
+
+/* Menü Bölümü */
+.menu-section {
+  padding: 40px 20px;
+  background-color: #f4f4f4;
+  text-align: center;
+}
+
+.menu-section h2 {
+  font-size: 2.5em;
+  margin-bottom: 30px;
+}
+
+.menu-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+.menu-item {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 20%;
+  text-align: center;
+  padding: 20px;
+}
+
+.menu-item img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.menu-item h3 {
+  font-size: 1.5em;
+  margin-top: 10px;
+}
+
+.siparis-btn {
+  background-color: #ffcc00;
+  color: black;
+  padding: 10px 20px;
+  font-size: 1.1em;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: 0.3s;
+  display: inline-block;
+  margin-top: 20px;
+}
+
+/* Footer */
+footer {
+  background-color: black;
+  color: white;
+  text-align: center;
+  padding: 15px;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+}
+
+/* Responsive Düzenlemeler */
+@media (max-width: 1024px) {
+  .top-header {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    margin-top: 10px;
+  }
+
+  .menu-item {
+    width: 45%;
+    /* Orta boyutlu ekranlar için uygun genişlik */
+  }
+}
+
+@media (max-width: 768px) {
+  .kampanya-banner {
+    height: 300px;
+  }
+
+  .kampanya-text h2 {
+    font-size: 2em;
+  }
+
+  .kampanya-text p {
+    font-size: 1em;
+  }
+
+  .kampanya-btn {
+    font-size: 1em;
+    padding: 10px 20px;
+    width: 100%;
+  }
+
+  .menu-item {
+    width: 90%;
+    /* Mobilde menü öğeleri daha büyük olacak şekilde ayarlandı */
+  }
+
+  .siparis-btn {
+    font-size: 1em;
+    padding: 8px 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .top-header .logo-container img {
+    width: 15px;
+    /* Logo boyutu mobilde daha küçük yapılır */
+  }
+
+  .menu-item {
+    width: 100%;
+    /* Mobilde menü öğeleri tam genişlik kaplar */
+  }
+
+  .kampanya-banner {
+    height: 250px;
+  }
+
+  .kampanya-text h2 {
+    font-size: 1.6em;
+  }
+
+  .kampanya-text p {
+    font-size: 0.9em;
+  }
+
+  .kampanya-btn {
+    font-size: 0.9em;
+    padding: 8px 15px;
+  }
+}
+
+/* Modal Temel Ayarları */
+.modal {
+  display: none;
+  /* Başlangıçta gizli */
+  position: fixed;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+  /* Saydam siyah arka plan */
+}
+
+/* Modal İçerik Kutusu */
+.modal-content {
+  background-color: #fff;
+  margin: 10% auto;
+  padding: 20px 30px;
+  border: 1px solid #888;
+  width: 90%;
+  max-width: 400px;
+  border-radius: 10px;
+  animation: fadeIn 0.4s;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Kapatma Butonu (X) */
+#closeModal {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+#closeModal:hover {
+  color: #000;
+}
+
+/* Giriş ve Kayıt Formu İçindeki Inputlar ve Buttonlar */
+#loginForm input,
+#registerForm input,
+#loginForm button,
+#registerForm button {
+  width: 100%;
+  padding: 10px 15px;
+  margin: 10px 0;
+  display: block;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+#loginForm button,
+#registerForm button {
+  background-color: #e53935;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+#loginForm button:hover,
+#registerForm button:hover {
+  background-color: #d32f2f;
+}
+
+/* Form başlıkları */
+#loginForm h2,
+#registerForm h2 {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+/* Formlar arasında geçiş bağlantıları */
+#loginForm p,
+#registerForm p {
+  text-align: center;
+}
+
+#loginForm a,
+#registerForm a {
+  color: #e53935;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+#loginForm a:hover,
+#registerForm a:hover {
+  text-decoration: underline;
+}
+
+/* Fade In Animasyonu */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+/* logout-btn butonunun stilini düzenle */
+.logout-btn {
+  text-decoration: none;
+  /* Altını çizme */
+  color: #fff;
+  /* Yazı rengini beyaz yap */
+  background-color: black;
+  /* Çıkış butonunun kırmızı arka plan rengi */
+  padding: 10px 20px;
+  /* Butonun iç boşluğu */
+  border-radius: 5px;
+  /* Kenarlarını yuvarlak yap */
+  font-weight: bold;
+  /* Yazıyı kalın yap */
+}
+
+.logout-btn:hover {
+  background-color: #d32f2f;
+  /* Hover durumunda koyu kırmızı arka plan */
+  color: #fff;
+  /* Hover durumunda beyaz yazı rengi */
+}
+
+/* Başlangıçta chat kutusu gizli */
+.chatbot {
+  display: none;
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  width: 300px;
+  height: 400px;
+  background-color: #f1f1f1;
+  box-shadow: -2px 2px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px 0 0 10px;
+  padding: 10px;
+  box-sizing: border-box;
+  transition: all 0.3s ease-in-out;
+  z-index: 1000;
+}
+
+/* Chatbot butonu */
+.chatbot-button {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  background-color: #007bff;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 30px;
+  cursor: pointer;
+  font-size: 14px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease-in-out;
+}
+
+.chatbot-button:hover {
+  background-color: #0056b3;
+}
+
+/* Mesajlar kutusu */
+#chatbox {
+  height: calc(100% - 60px);
+  /* Alt kısmı bırakarak mesaj kutusunun yüksekliğini ayarlıyoruz */
+  overflow-y: scroll;
+  margin-bottom: -15px;
+  padding-right: 5px;
+
+  /* Gönder butonu ve input alanı için alan bırak */
+}
+
+#sendButton {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%;
+  position: absolute;
+  bottom: 10px;
+  /* Gönder butonunu alt kısmına yerleştiriyoruz */
+  left: 0;
+}
+
+.message {
+  background-color: #e1e1e1;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  width: 80%;
+}
+
+#userInput {
+  width: 80%;
+  padding: 10px;
+  margin-right: 10px;
+  border-radius: 5px;
+}
+
+button {
+  background-color: #28a745;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 10px;
+}
+
+button:hover {
+  background-color: #218838;
+}
+
+
+/* Kapatma butonu sağ üst köşede */
+#closeChatButton {
+  background-color: transparent;
+  color: #333;
+  font-size: 10px;
+  border: none;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+}
+
+.nav-links li a:hover {
+  color: #ffcc00;
+}

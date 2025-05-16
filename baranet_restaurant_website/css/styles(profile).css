@@ -1,0 +1,250 @@
+/* Genel ayarlar */
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fafafa;
+    color: #333;
+}
+
+/* Navbar */
+.top-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    background-color: black;
+    color: white;
+    flex-wrap: wrap;
+}
+
+.logo-title-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo-title-container .logo {
+    width: 50px;
+    height: auto;
+}
+
+.logo-title-container .site-title {
+    font-size: 1.3em;
+    font-weight: bold;
+    color: white;
+}
+
+/* Navigation links */
+.nav-links {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+    gap: 20px;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    font-size: 1.1em;
+    transition: color 0.3s;
+}
+
+.nav-links li a:hover {
+    color: #ffcc00;
+}
+
+/* User Options */
+.user-options {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.user-options .login-btn,
+.user-options .cart-icon {
+    color: white;
+    font-size: 1.2em;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.user-options .login-btn:hover,
+.user-options .cart-icon:hover {
+    color: #ffcc00;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .top-header {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 10px;
+    }
+
+    .user-options {
+        margin-top: 10px;
+    }
+}
+
+
+
+.cart-icon i {
+    margin-right: 5px;
+}
+
+/* Profil Sayfası */
+.profile-section {
+    max-width: 600px;
+    margin: 40px auto;
+    background-color: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.profile-section h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: #222;
+}
+
+#userInfo p {
+    margin: 10px 0;
+    font-size: 16px;
+}
+
+form label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 500;
+    color: #444;
+}
+
+form input {
+    width: 100%;
+    padding: 10px 12px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 15px;
+    box-sizing: border-box;
+}
+
+.submit-btn {
+    background-color: #ffcc00;
+    color: #000;
+    border: none;
+    padding: 12px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.submit-btn:hover {
+    background-color: #e6b800;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #111;
+    color: white;
+    margin-top: 50px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .top-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 10px;
+    }
+
+    .profile-section {
+        margin: 20px;
+        padding: 20px;
+    }
+}
+
+.logout-btn {
+    text-decoration: none;
+    /* Altını çizme */
+    color: #fff;
+    /* Yazı rengini beyaz yap */
+    background-color: black;
+    /* Çıkış butonunun kırmızı arka plan rengi */
+    padding: 10px 20px;
+    /* Butonun iç boşluğu */
+    border-radius: 5px;
+    /* Kenarlarını yuvarlak yap */
+    font-weight: bold;
+    /* Yazıyı kalın yap */
+}
+
+.logout-btn:hover {
+    background-color: #d32f2f;
+    /* Hover durumunda koyu kırmızı arka plan */
+    color: #fff;
+    /* Hover durumunda beyaz yazı rengi */
+}
+
+/* Sipariş Geçmişi Bölümü */
+.order-history-section {
+    margin: 40px auto;
+    padding: 20px;
+    max-width: 800px;
+    background-color: #fdfdfd;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.order-history-section h2 {
+    margin-bottom: 20px;
+    color: #333;
+    font-size: 24px;
+    border-bottom: 2px solid #cc0000;
+    padding-bottom: 10px;
+}
+
+.order-item {
+    border: 1px solid #ddd;
+    border-left: 5px solid #cc0000;
+    background-color: #fff;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+}
+
+.order-item p {
+    margin: 5px 0;
+    color: #444;
+    font-size: 15px;
+}
+
+.order-item ul {
+    padding-left: 20px;
+}
+
+.order-item li {
+    font-size: 14px;
+    margin-bottom: 3px;
+}

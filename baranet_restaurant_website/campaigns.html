@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kampanyalar - Baran Et Restaurant</title>
+    <link rel="stylesheet" href="/Users/serkanguzelgun/Desktop/PROJE/css/styles(campaign).css">
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="top-header">
+        <div class="logo-title-container">
+            <img src="images/restoran-logo.png" alt="Baran Et Restaurant Logo" class="logo">
+            <h1 class="site-title">Baran Et Restaurant</h1>
+        </div>
+
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html">Ana Sayfa</a></li>
+                <li><a href="menu.html">Menü</a></li>
+                <li><a href="campaigns.html">Kampanyalar</a></li>
+                <li><a href="reservation.html">Rezervasyon</a></li>
+                <li><a href="contact.html">İletişim</a></li>
+                <li><a id="profileBtn" href="profile.html">Profil</a></li>
+            </ul>
+        </nav>
+
+        <div class="user-options">
+            <a href="login.html" class="login-btn" id="loginBtn">Giriş Yap</a>
+            <a href="logout.html" class="logout-btn" id="logoutBtn" style="display: none;">Çıkış Yap</a>
+            <a href="cart.html" class="cart-icon"><i class="fas fa-shopping-cart"></i>Sepet</a>
+        </div>
+    </header>
+
+    <script>
+        // Kullanıcı giriş durumunu kontrol et
+        let username = localStorage.getItem('username'); // Giriş yapan kullanıcı adını al
+
+        if (username) {
+            // Eğer kullanıcı adı varsa, Giriş Yap butonunu gizle ve Çıkış Yap butonunu göster
+            document.getElementById('loginBtn').style.display = 'none';
+            document.getElementById('logoutBtn').style.display = 'inline';
+            document.getElementById('profileBtn').style.display = 'inline';
+        } else {
+            // Kullanıcı giriş yapmamışsa, Giriş Yap butonunu göster
+            document.getElementById('loginBtn').style.display = 'inline';
+            document.getElementById('logoutBtn').style.display = 'none';
+            document.getElementById('profileBtn').style.display = 'none';
+        }
+    </script>
+
+    <main>
+        <section class="campaigns-section">
+            <h1>Kampanyalarımız</h1>
+            <div class="campaigns-container">
+                <div class="campaign-card">
+                    <img src="images/company1.jpg" alt="Kampanya 1" class="campaign-image">
+                    <div class="campaign-info">
+                        <h3>Yaz İndirim Kampanyası</h3>
+                        <p>%50'ye varan indirimlerle yaz menüsünü keşfedin!</p>
+
+                    </div>
+                </div>
+
+                <div class="campaign-card">
+                    <img src="images/company2.jpg" alt="Kampanya 2" class="campaign-image">
+                    <div class="campaign-info">
+                        <h3>Hafta Sonu İndirimi</h3>
+                        <p>Hafta sonu yemeklerinizi %30 indirimle alın!</p>
+
+                    </div>
+                </div>
+
+                <div class="campaign-card">
+                    <img src="images/company3.jpg" alt="Kampanya 3" class="campaign-image">
+                    <div class="campaign-info">
+                        <h3>Öğle Menüsü İndirimi</h3>
+                        <p>Öğle saatlerinde %20 indirim fırsatını kaçırmayın!</p>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2025 Baran Et Restaurant - Tüm Hakları Saklıdır.</p>
+    </footer>
+</body>
+
+</html>

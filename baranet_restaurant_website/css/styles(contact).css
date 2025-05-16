@@ -1,0 +1,154 @@
+/* Genel Stil */
+body {
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.top-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  background-color: #fff;
+}
+
+.logo-title-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  /* Logo ve yazı arasındaki boşluk */
+}
+
+.logo {
+  width: 50px;
+  height: auto;
+}
+
+.site-title {
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+}
+
+/* Header */
+.top-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 15px;
+  background-color: black;
+  color: white;
+}
+
+.top-header .logo-container img {
+  width: 60px;
+  height: auto;
+}
+
+.top-header nav {
+  flex-grow: 1;
+  text-align: center;
+}
+
+.top-header .nav-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.top-header .nav-links li {
+  margin: 0 15px;
+}
+
+.top-header .nav-links a {
+  text-decoration: none;
+  color: white;
+  font-size: 1.1em;
+  font-weight: bold;
+}
+
+.top-header .user-options {
+  display: flex;
+  align-items: center;
+}
+
+.top-header .user-options .login-btn,
+.top-header .user-options .cart-icon {
+  margin-left: 15px;
+  color: white;
+  text-decoration: none;
+  font-size: 1.2em;
+}
+
+/* 🌟 İletişim Bölümü */
+.contact-section {
+  padding: 40px 20px;
+  /* İçeriğin etrafına boşluk ekler */
+  background-color: #f4f4f4;
+  /* Krem bej tonunda arka plan rengi */
+  text-align: center;
+  /* İçeriği ortalar */
+}
+
+.contact-info {
+  background-color: white;
+  /* Arka planı beyaz yapar */
+  padding: 20px;
+  /* İç boşluk ekler */
+  border-radius: 10px;
+  /* Köşeleri yuvarlatır */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  /* Hafif bir gölge efekti ekler */
+}
+
+.contact-info p {
+  font-size: 1.2em;
+  /* Yazı boyutunu büyütür */
+  color: black
+    /* Açık gri renkte yazı rengi */
+}
+
+/* 🌟 Footer (Alt Kısım) */
+footer {
+  background-color: black;
+  /* Koyu mavi arka plan rengi */
+  color: white;
+  /* Yazılar beyaz olacak */
+  text-align: center;
+  /* Yazılar ortalanır */
+  padding: 20px 0;
+  /* Üst ve alt boşluk ekler */
+  font-size: 1.2em;
+  /* Yazı boyutunu büyütür */
+}
+
+/* logout-btn butonunun stilini düzenle */
+.logout-btn {
+  text-decoration: none;
+  /* Altını çizme */
+  color: #fff;
+  /* Yazı rengini beyaz yap */
+  background-color: black;
+  /* Çıkış butonunun kırmızı arka plan rengi */
+  padding: 10px 20px;
+  /* Butonun iç boşluğu */
+  border-radius: 5px;
+  /* Kenarlarını yuvarlak yap */
+  font-weight: bold;
+  /* Yazıyı kalın yap */
+}
+
+.logout-btn:hover {
+  background-color: #d32f2f;
+  /* Hover durumunda koyu kırmızı arka plan */
+  color: #fff;
+  /* Hover durumunda beyaz yazı rengi */
+}
+
+.nav-links li a:hover {
+  color: #ffcc00;
+}

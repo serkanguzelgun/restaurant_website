@@ -1,0 +1,351 @@
+/* Genel stil */
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fafafa;
+    color: #333;
+}
+
+/* Genel navbar stili */
+.navbar {
+    width: 100%;
+    background-color: #333;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+/* Navbar içindeki bağlantılar */
+.navbar a {
+    float: left;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 16px 20px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+/* Hover efekti */
+.navbar a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+/* Header düzeni */
+.top-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    background-color: black;
+    color: white;
+    flex-wrap: wrap;
+}
+
+.logo-title-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo-title-container .logo {
+    width: 50px;
+    height: auto;
+}
+
+.logo-title-container .site-title {
+    font-size: 1.3em;
+    font-weight: bold;
+    color: white;
+}
+
+/* Navigation links */
+.nav-links {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+    gap: 20px;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    font-size: 1.1em;
+    transition: color 0.3s;
+}
+
+.nav-links li a:hover {
+    color: #ffcc00;
+}
+
+/* User Options */
+.user-options {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.user-options .login-btn,
+.user-options .cart-icon {
+    color: white;
+    font-size: 1.2em;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.user-options .login-btn:hover,
+.user-options .cart-icon:hover {
+    color: #ffcc00;
+}
+
+/* Diğer stiller */
+.cart-icon {
+    font-size: 1.2rem;
+    color: #333;
+    text-decoration: none;
+}
+
+/* Sepet ve onay butonları */
+#checkout-btn {
+    background-color: #28a745;
+    padding: 12px 28px;
+    font-size: 1.1rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+#checkout-btn:hover {
+    background-color: #218838;
+}
+
+/* Sepet içeriği düzeni */
+.cart-container {
+    width: 100%;
+    max-width: 1100px;
+    background: #fff;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    margin-top: 80px;
+}
+
+/* Modal pencere stilleri */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+/* Başlık */
+h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    color: #333;
+}
+
+/* Sepet Listesi */
+#cart-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Sepet Ürünü */
+.cart-item {
+    display: flex;
+    align-items: center;
+    background: #fafafa;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+}
+
+.cart-item:hover {
+    background: #f0f0f0;
+    transform: translateY(-3px);
+}
+
+/* Ürün görseli */
+.product-image {
+    width: 90px;
+    height: 90px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-right: 20px;
+}
+
+/* Ürün detayları */
+.product-details {
+    flex-grow: 1;
+}
+
+.product-details p {
+    margin: 6px 0;
+    color: #555;
+    font-size: 1rem;
+}
+
+.product-details strong {
+    color: #333;
+}
+
+/* Butonlar */
+.update-btn,
+.remove-btn {
+    background-color: #ff7b00;
+    border: none;
+    padding: 8px 16px;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 10px;
+    margin-right: 10px;
+    font-size: 0.9rem;
+    transition: background 0.3s;
+}
+
+.update-btn:hover {
+    background-color: #e06b00;
+}
+
+.remove-btn {
+    background-color: #dc3545;
+}
+
+.remove-btn:hover {
+    background-color: #c82333;
+}
+
+/* Miktar inputu */
+.new-quantity-input {
+    width: 70px;
+    padding: 8px;
+    margin-top: 10px;
+    font-size: 1rem;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    text-align: center;
+}
+
+/* Sepet Özeti */
+#cart-summary {
+    margin-top: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #007bff;
+    color: white;
+    padding: 20px 30px;
+    border-radius: 12px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+.summary-text {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+/* Sepeti Onayla Butonu */
+#checkout-btn {
+    background-color: #28a745;
+    padding: 12px 28px;
+    font-size: 1.1rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+#checkout-btn:hover {
+    background-color: #218838;
+}
+
+/* Bildirim Mesajı */
+.confirmation-message {
+    position: fixed;
+    bottom: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #28a745;
+    color: white;
+    padding: 15px 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+    font-size: 1.2rem;
+    display: none;
+    z-index: 999;
+}
+
+.confirmation-message.hidden {
+    display: none;
+}
+
+/* Responsive (Mobil için) */
+@media (max-width: 768px) {
+    .cart-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    #cart-summary {
+        flex-direction: column;
+        gap: 15px;
+    }
+}
+
+.hidden {
+    display: none;
+}
+
+#confirmation-message {
+    padding: 10px;
+    background-color: #28a745;
+    color: white;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+
+.logout-btn {
+    text-decoration: none;
+    /* Altını çizme */
+    color: #fff;
+    /* Yazı rengini beyaz yap */
+    background-color: black;
+    /* Çıkış butonunun kırmızı arka plan rengi */
+    padding: 10px 20px;
+    /* Butonun iç boşluğu */
+    border-radius: 5px;
+    /* Kenarlarını yuvarlak yap */
+    font-weight: bold;
+    /* Yazıyı kalın yap */
+}
+
+.logout-btn:hover {
+    background-color: #d32f2f;
+    /* Hover durumunda koyu kırmızı arka plan */
+    color: #fff;
+    /* Hover durumunda beyaz yazı rengi */
+}
+
+.nav-links li a:hover {
+    color: #ffcc00;
+}

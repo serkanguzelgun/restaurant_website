@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Menü - Baran Et Restaurant</title>
+  <link rel="stylesheet" href="/Users/serkanguzelgun/Desktop/PROJE/css/styles(menu).css" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
+  <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <div id="toast" class="toast-hidden">Ürün sepete eklendi!</div>
+
+  <!-- Header -->
+  <header class="top-header">
+    <div class="logo-title-container">
+      <img src="images/restoran-logo.png" alt="Baran Et Restaurant Logo" class="logo" />
+      <h1 class="site-title">Baran Et Restaurant</h1>
+    </div>
+
+    <nav>
+      <ul class="nav-links">
+        <li><a href="index.html">Ana Sayfa</a></li>
+        <li><a href="menu.html">Menü</a></li>
+        <li><a href="campaigns.html">Kampanyalar</a></li>
+        <li><a href="reservation.html">Rezervasyon</a></li>
+        <li><a href="contact.html">İletişim</a></li>
+        <li><a id="profileBtn" href="profile.html">Profil</a></li>
+      </ul>
+    </nav>
+
+    <div class="user-options">
+      <a href="login.html" class="login-btn" id="loginBtn">Giriş Yap</a>
+      <a href="logout.html" class="logout-btn" id="logoutBtn" style="display: none;">Çıkış Yap</a>
+      <a href="cart.html" class="cart-icon"><i class="fas fa-shopping-cart"></i>Sepet</a>
+    </div>
+  </header>
+
+  <!-- Menü Bölümü -->
+  <section class="menu-section" id="menu">
+    <h2>Menümüz</h2>
+
+    <!-- Arama ve Kategori -->
+    <div class="filter-bar">
+      <div class="search-sort-wrapper">
+        <input type="text" id="search-input" placeholder="🔍 Ürün ara..." />
+        <select id="sort-select">
+          <option value="default">Sırala</option>
+          <option value="asc">Fiyata Göre Artan</option>
+          <option value="desc">Fiyata Göre Azalan</option>
+        </select>
+      </div>
+      <div id="category-buttons" class="category-buttons"></div>
+    </div>
+
+    <div class="menu-container" id="product-list">
+      <!-- Ürünler buraya dinamik olarak eklenecek -->
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 Baran Et Restaurant. Tüm hakları saklıdır.</p>
+  </footer>
+
+  <script>
+    let allProducts = [];
+    let currentCategory = 'Hepsi';
+    let username = localStorage.getItem('username') || null;
+
+    function loadProducts(categoryId = null) {
+      fetch('http://127.0.0.1:8000/api/products/')
+        .then(res => res.json())
+        .then(data => {
+          allProducts = data.products;
+          let filtered = allProducts;
+          if (categoryId !== null) {
+            filtered = allProducts.filter(p => p.category_id === categoryId);
+          }
+          renderProducts(filtered);
+        });
+    }
+
+    function createCategoryButtons() {
+      fetch('http://127.0.0.1:8000/api/categories/')
+        .then(response => response.json())
+        .then(data => {
+          const categoryButtonsDiv = document.getElementById('category-buttons');
+          categoryButtonsDiv.innerHTML = ''; // Önce temizle
+
+          const allBtn = document.createElement('button');
+          allBtn.textContent = 'Hepsi';
+          allBtn.onclick = () => filterByCategory('Hepsi');
+          categoryButtonsDiv.appendChild(allBtn);
+
+          data.categories.forEach(category => {
+            const btn = document.createElement('button');
+            btn.textContent = category.name;
+            btn.onclick = () => filterByCategory(category.id);
+            categoryButtonsDiv.appendChild(btn);
+          });
+        });
+    }
+
+
+    function filterByCategory(categoryId) {
+      currentCategory = categoryId;
+      const keyword = document.getElementById('search-input').value.toLowerCase();
+
+      let url = categoryId === 'Hepsi'
+        ? 'http://127.0.0.1:8000/api/products/'
+        : `http://127.0.0.1:8000/api/products/category/${categoryId}/`;
+
+      fetch(url)
+        .then(response => response.json())
+        .then(data => {
+          let filtered = data.products;
+          if (keyword.trim()) {
+            filtered = filtered.filter(p =>
+              p.name.toLowerCase().includes(keyword)
+            );
+          }
+          renderProducts(filtered);
+        });
+    }
+
+    document.getElementById('search-input').addEventListener('input', () => {
+      filterByCategory(currentCategory);
+    });
+
+    document.getElementById('sort-select').addEventListener('change', () => {
+      filterByCategory(currentCategory);
+    });
+
+    function addToCart(productId) {
+      if (!username) {
+        alert("Lütfen sepete ürün eklemek için giriş yapın.");
+        window.location.href = "login.html";
+        return;
+      }
+
+      const quantityInput = document.getElementById(`quantity-${productId}`);
+      const quantity = parseInt(quantityInput?.value);
+
+      if (quantity && quantity > 0) {
+        // API URL'si sabit, sadece body'den gelen veriler değişecek
+        fetch('http://127.0.0.1:8000/api/add-to-cart/', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            product_id: productId,
+            quantity: quantity,
+            username: username
+          })
+        })
+          .then(res => res.json())
+          .then(data => {
+            console.log(data);  // Backend cevabını kontrol et
+            showToast(data.message || "Ürün sepete eklendi!");
+          })
+          .catch(error => {
+            console.error("Sepete eklerken hata:", error);
+            alert("Ürün sepete eklenemedi. Lütfen tekrar deneyin.");
+          });
+      } else {
+        alert("Lütfen geçerli bir miktar girin.");
+      }
+    }
+
+    function renderProducts(products) {
+      const sortOption = document.getElementById('sort-select')?.value;
+      if (sortOption === 'asc') {
+        products.sort((a, b) => a.price - b.price);
+      } else if (sortOption === 'desc') {
+        products.sort((a, b) => b.price - a.price);
+      }
+
+      const productList = document.getElementById('product-list');
+      productList.innerHTML = '';
+      products.forEach(product => {
+        const productDiv = document.createElement('div');
+        productDiv.classList.add('menu-item');
+        productDiv.innerHTML = `
+          <img src="${product.image}" alt="${product.name}" class="product-image">
+          <h3>${product.name}</h3>
+          <p>${product.description}</p>
+          <p class="price">${product.price}₺</p>
+          <input type="number" id="quantity-${product.id}" value="1" min="1" style="width: 60px;">
+          <button onclick="addToCart(${product.id})"><span class="icon">🛒</span> Sepete Ekle</button>
+        `;
+        productList.appendChild(productDiv);
+      });
+    }
+
+    // Giriş-çıkış butonları
+    if (username) {
+      document.getElementById('loginBtn').style.display = 'none';
+      document.getElementById('logoutBtn').style.display = 'inline';
+      document.getElementById('profileBtn').style.display = 'inline';
+    } else {
+      document.getElementById('loginBtn').style.display = 'inline';
+      document.getElementById('logoutBtn').style.display = 'none';
+      document.getElementById('profileBtn').style.display = 'none';
+    }
+
+    function showToast(message) {
+      const toast = document.getElementById('toast');
+      toast.textContent = message;
+      toast.classList.remove('toast-hidden');
+      toast.classList.add('toast-visible');
+      setTimeout(() => {
+        toast.classList.remove('toast-visible');
+        toast.classList.add('toast-hidden');
+      }, 2000);
+    }
+
+    // Sayfa yüklendiğinde
+    window.onload = () => {
+      loadProducts();
+      createCategoryButtons();
+    };
+  </script>
+</body>
+
+</html>

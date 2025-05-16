@@ -1,0 +1,109 @@
+/* Ortak Body Stili */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f4f4f4;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+/* Başlık Stili */
+h2 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Form Alanı */
+form {
+    background-color: #fff;
+    padding: 30px 40px;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* Form Inputları */
+form input[type="text"],
+form input[type="email"],
+form input[type="password"] {
+    width: 100%;
+    padding: 12px 15px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 1em;
+}
+
+/* Form Butonu */
+form button {
+    width: 100%;
+    background-color: #ffcc00;
+    color: black;
+    padding: 12px;
+    font-size: 1.1em;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    margin-top: 15px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+/* Buton Hover */
+form button:hover {
+    background-color: #e6b800;
+}
+
+/* Alt Link Alanı */
+p {
+    margin-top: 15px;
+    color: #555;
+}
+
+/* Linkler */
+p a {
+    color: #ff9900;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Link Hover */
+p a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive Düzenleme */
+@media (max-width: 600px) {
+    form {
+        width: 90%;
+        padding: 20px;
+    }
+
+}
+
+/* Form Giriş Animasyonu */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Form Animasyonu Uygulama */
+form {
+    background-color: #fff;
+    padding: 30px 40px;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    animation: fadeInUp 0.8s ease forwards;
+}

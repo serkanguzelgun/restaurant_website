@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kullanıcı Profili - Baran Et Restaurant</title>
+    <link rel="stylesheet" href="/Users/serkanguzelgun/Desktop/PROJE/css/styles(profile).css" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="top-header">
+        <div class="logo-title-container">
+            <img src="images/restoran-logo.png" alt="Baran Et Restaurant Logo" class="logo" />
+            <h1 class="site-title">Baran Et Restaurant</h1>
+        </div>
+
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html">Ana Sayfa</a></li>
+                <li><a href="menu.html">Menü</a></li>
+                <li><a href="campaigns.html">Kampanyalar</a></li>
+                <li><a href="reservation.html">Rezervasyon</a></li>
+                <li><a href="contact.html">İletişim</a></li>
+                <li><a id="profileBtn" href="profile.html">Profil</a></li>
+            </ul>
+        </nav>
+
+
+
+        <div class="user-options">
+            <a href="login.html" class="login-btn" id="loginBtn">Giriş Yap</a>
+            <a href="logout.html" class="logout-btn" id="logoutBtn"
+                style="display: none; text-decoration: none; color: white;">Çıkış
+                Yap</a>
+            <a href="cart.html" class="cart-icon"><i class="fas fa-shopping-cart"></i>Sepet</a>
+        </div>
+    </header>
+
+    <!-- JavaScript: Kullanıcı Giriş Kontrolü -->
+    <script>
+        let oldUsername = localStorage.getItem('username');
+        if (!oldUsername) {
+            window.location.href = 'index.html';
+        } else {
+            document.getElementById('loginBtn').style.display = 'none';
+            document.getElementById('logoutBtn').style.display = 'inline';
+        }
+    </script>
+
+    <!-- Profil Sayfası -->
+    <section class="profile-section">
+        <h2>Profiliniz</h2>
+        <div id="userInfo" style="margin-bottom: 20px;">
+            <p><strong>Mevcut Kullanıcı Adı:</strong> <span id="currentUsername">Yükleniyor...</span></p>
+            <p><strong>Kayıtlı E-posta:</strong> <span id="userEmail">Yükleniyor...</span></p>
+        </div>
+
+        <form id="profileForm">
+            <div>
+                <label for="newUsername">Yeni Kullanıcı Adı</label>
+                <input type="text" id="newUsername" name="newUsername" placeholder="Yeni kullanıcı adınızı girin" />
+            </div>
+            <div>
+                <label for="password">Yeni Şifre</label>
+                <input type="password" id="password" name="password" placeholder="Yeni şifre (isteğe bağlı)" />
+            </div>
+            <div>
+                <label for="confirmPassword">Şifreyi Onayla</label>
+                <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Şifreyi tekrar girin" />
+            </div>
+            <button type="submit" class="submit-btn">Profili Güncelle</button>
+        </form>
+
+        <div id="message" style="margin-top: 20px; font-size: 16px;"></div>
+    </section>
+    <!-- Sipariş Geçmişi -->
+    <section class="order-history-section">
+        <h2>Sipariş Geçmişi</h2>
+        <div id="orderHistoryContainer">
+            <p>Yükleniyor...</p>
+        </div>
+    </section>
+
+    <!-- JavaScript: Profil Getir & Güncelle -->
+    <script>
+        const old_username = localStorage.getItem('username');
+
+        // Kullanıcı bilgilerini getir
+        fetch("http://127.0.0.1:8000/api/get-user-profile/", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ username: old_username })
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.status === 'success') {
+                    document.getElementById("currentUsername").innerText = data.user.username;
+                    document.getElementById("userEmail").innerText = data.user.email;
+                } else {
+                    document.getElementById("message").innerText = "Kullanıcı bilgileri getirilemedi.";
+                }
+            })
+            .catch(err => {
+                document.getElementById("message").innerText = "Sunucu hatası: Bilgiler alınamadı.";
+            });
+
+        // Form gönderme işlemi
+        document.getElementById('profileForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const new_username = document.getElementById('newUsername').value.trim();
+            const new_password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+
+            if ((new_password || confirmPassword) && new_password !== confirmPassword) {
+                document.getElementById('message').innerText = 'Şifreler uyuşmuyor!';
+                return;
+            }
+
+            if (!new_username && !new_password) {
+                document.getElementById('message').innerText = 'Değişiklik yapmak için en az bir alanı doldurun.';
+                return;
+            }
+
+            fetch('http://127.0.0.1:8000/api/update-profile/', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    old_username: old_username,
+                    new_username: new_username ? new_username : old_username,
+                    new_password: new_password
+                })
+            })
+                .then(res => res.json())
+                .then(data => {
+                    if (data.status === 'success') {
+                        if (new_username) {
+                            localStorage.setItem('username', new_username);
+                            document.getElementById("currentUsername").innerText = new_username;
+                        }
+                        document.getElementById('message').innerText = 'Profil başarıyla güncellendi.';
+                    } else {
+                        document.getElementById('message').innerText = data.message;
+                    }
+                })
+                .catch(() => {
+                    document.getElementById('message').innerText = 'Bir hata oluştu. Lütfen tekrar deneyin.';
+                });
+        });
+
+        function loadOrderHistory(username) {
+            fetch("http://127.0.0.1:8000/api/order-history/", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({ username: username })
+            })
+                .then(res => res.json())
+                .then(data => {
+                    const container = document.getElementById("orderHistoryContainer");
+                    container.innerHTML = "";
+
+                    if (data.status === 'success' && data.orders.length > 0) {
+                        data.orders.forEach(order => {
+                            const orderDiv = document.createElement("div");
+                            orderDiv.className = "order-item";
+
+                            // Tarihi düzgün biçimlendir
+                            const dateObj = new Date(order.created_at);
+                            const formattedDate = dateObj.toLocaleDateString('tr-TR', {
+                                year: 'numeric',
+                                month: 'long',
+                                day: 'numeric',
+                                hour: '2-digit',
+                                minute: '2-digit'
+                            });
+
+                            // Toplam sipariş tutarını hesapla
+                            let totalOrderPrice = 0;
+                            order.items.forEach(item => {
+                                totalOrderPrice += parseFloat(item.total_price);
+                            });
+                            const formattedTotal = totalOrderPrice.toFixed(2).replace('.', ',');
+
+                            // Ürün listesi
+                            let itemsHTML = "<ul>";
+                            order.items.forEach(item => {
+                                const itemTotal = parseFloat(item.total_price).toFixed(2).replace('.', ',');
+                                itemsHTML += `<li>${item.product_name} x ${item.quantity} (${itemTotal}₺)</li>`;
+                            });
+                            itemsHTML += "</ul>";
+
+                            orderDiv.innerHTML = `
+                    <p><strong>Tarih:</strong> ${formattedDate}</p>
+                    <p><strong>Toplam Tutar:</strong> ${formattedTotal}₺</p>
+                    <p><strong>Adres:</strong> ${order.address}</p>
+                    <p><strong>Ürünler:</strong></p>
+                    ${itemsHTML}
+                `;
+                            container.appendChild(orderDiv);
+                        });
+                    } else {
+                        container.innerHTML = "<p>Henüz sipariş geçmişiniz yok.</p>";
+                    }
+                })
+                .catch(() => {
+                    document.getElementById("orderHistoryContainer").innerHTML = "<p>Bir hata oluştu. Sipariş geçmişi alınamadı.</p>";
+                });
+        }
+
+        // Sayfa yüklenince otomatik olarak çağır
+        if (oldUsername) {
+            loadOrderHistory(oldUsername);
+        }
+    </script>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2025 Baran Et Restaurant. Tüm hakları saklıdır.</p>
+    </footer>
+</body>
+
+</html>

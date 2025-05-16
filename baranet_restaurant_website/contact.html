@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="tr"> <!-- Sayfanın dilini Türkçe olarak belirtir -->
+
+<head>
+  <meta charset="UTF-8">
+  <!-- Sayfa karakter setini belirtir (Türkçe karakterlerin doğru görüntülenmesi için gereklidir) -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Sayfa boyutunun mobil cihazlarda düzgün görünmesini sağlar -->
+  <meta http-equiv="X-UA-Compatible" content="ie=edge"> <!-- Internet Explorer için uyumluluk modu belirtir -->
+  <title>İletişim - Baran Et Restaurant</title> <!-- Tarayıcı sekmesindeki başlık (sayfa başlığı) -->
+  <link rel="stylesheet" href="/Users/serkanguzelgun/Desktop/PROJE/css/styles(contact).css">
+  <!-- Sayfaya dış stil dosyası (CSS) bağlar -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <!-- Google Fonts'tan 'Roboto' fontunu sayfaya dahil eder -->
+  <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+</head>
+
+<body>
+
+  <!-- Header -->
+  <header class="top-header">
+    <div class="logo-title-container">
+      <img src="images/restoran-logo.png" alt="Baran Et Restaurant Logo" class="logo">
+      <h1 class="site-title">Baran Et Restaurant</h1>
+    </div>
+
+    <nav>
+      <ul class="nav-links">
+        <li><a href="index.html">Ana Sayfa</a></li>
+        <li><a href="menu.html">Menü</a></li>
+        <li><a href="campaigns.html">Kampanyalar</a></li>
+        <li><a href="reservation.html">Rezervasyon</a></li>
+        <li><a href="contact.html">İletişim</a></li>
+        <li><a id="profileBtn" href="profile.html">Profil</a></li>
+      </ul>
+    </nav>
+
+    <div class="user-options">
+      <a href="login.html" class="login-btn" id="loginBtn">Giriş Yap</a>
+      <a href="logout.html" class="logout-btn" id="logoutBtn" style="display: none;">Çıkış Yap</a>
+      <a href="cart.html" class="cart-icon"><i class="fas fa-shopping-cart"></i>Sepet</a>
+    </div>
+  </header>
+
+  <script>
+    // Kullanıcı giriş durumunu kontrol et
+    let username = localStorage.getItem('username'); // Giriş yapan kullanıcı adını al
+
+    if (username) {
+      // Eğer kullanıcı adı varsa, Giriş Yap butonunu gizle ve Çıkış Yap butonunu göster
+      document.getElementById('loginBtn').style.display = 'none';
+      document.getElementById('logoutBtn').style.display = 'inline';
+      document.getElementById('profileBtn').style.display = 'inline';
+    } else {
+      // Kullanıcı giriş yapmamışsa, Giriş Yap butonunu göster
+      document.getElementById('loginBtn').style.display = 'inline';
+      document.getElementById('logoutBtn').style.display = 'none';
+      document.getElementById('profileBtn').style.display = 'none';
+    }
+  </script>
+
+
+  <!--  İletişim Bölümü -->
+  <section class="contact-section">
+    <h2>Bizimle İletişime Geçin</h2> <!-- İletişim başlığı -->
+    <div class="contact-info">
+      <p><strong>Telefon:</strong> +90 532 056 5610</p> <!-- Telefon numarası -->
+      <p><strong>E-posta:</strong> info@baranetrestaurant.com</p> <!-- E-posta adresi -->
+      <p><strong>Adres:</strong> Peyas, Nazım Hikmet Cd. No, 21070 Kayapınar/Diyarbakır</p> <!-- Restoranın adresi -->
+    </div>
+
+    <!-- 🌍 Harita Bölümü -->
+    <div class="map">
+      <h3>Konumumuzu Haritada Görüntüle</h3> <!-- Harita başlığı -->
+      <!-- Google Maps Embed kodu ile harita görüntüsü -->
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3147.039459396579!2d40.14610017541529!3d37.92950860323246!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40751f017d990333%3A0x5d96281990a3606f!2sBaran%20Et!5e0!3m2!1str!2str!4v1741999283428!5m2!1str!2str"
+        width="600" height="300" style="border:0;" allowfullscreen="" loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+  </section>
+
+  <!--  Footer (Alt Kısım) -->
+  <footer>
+    <p>© 2025 Baran Et Restaurant. Tüm hakları saklıdır.</p> <!-- Telif hakkı bilgisi -->
+  </footer>
+
+</body>
+
+</html>

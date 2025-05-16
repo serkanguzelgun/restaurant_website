@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="tr"> <!-- Sayfanın dilini Türkçe olarak belirtir -->
+
+<head>
+    <meta charset="UTF-8">
+    <!-- Sayfa karakter setini belirtir (Türkçe karakterlerin doğru görüntülenmesi için gereklidir) -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Sayfa boyutunun mobil cihazlarda düzgün görünmesini sağlar -->
+    <title>Baran Et Restaurant</title> <!-- Tarayıcı sekmesindeki başlık (sayfa başlığı) -->
+    <link rel="stylesheet" href="/Users/serkanguzelgun/Desktop/PROJE/css/styles(index).css">
+    <!-- Sayfaya dış stil dosyası (CSS) bağlar -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <!-- Google Fonts'tan 'Roboto' fontunu sayfaya dahil eder -->
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="top-header">
+        <div class="logo-title-container">
+            <img src="images/restoran-logo.png" alt="Baran Et Restaurant Logo" class="logo">
+            <h1 class="site-title">Baran Et Restaurant</h1>
+        </div>
+
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html">Ana Sayfa</a></li>
+                <li><a href="menu.html">Menü</a></li>
+                <li><a href="campaigns.html">Kampanyalar</a></li>
+                <li><a href="reservation.html">Rezervasyon</a></li>
+                <li><a href="contact.html">İletişim</a></li>
+                <li><a id="profileBtn" href="profile.html">Profil</a></li>
+            </ul>
+        </nav>
+
+        <div class="user-options">
+            <a href="login.html" class="login-btn" id="loginBtn">Giriş Yap</a>
+            <a href="logout.html" class="logout-btn" id="logoutBtn" style="display: none;">Çıkış Yap</a>
+            <a href="cart.html" class="cart-icon"><i class="fas fa-shopping-cart"></i>Sepet</a>
+        </div>
+    </header>
+
+    <script>
+        // Kullanıcı giriş durumunu kontrol et
+        let username = localStorage.getItem('username'); // Giriş yapan kullanıcı adını al
+
+        if (username) {
+            // Eğer kullanıcı adı varsa, Giriş Yap butonunu gizle ve Çıkış Yap butonunu göster
+            document.getElementById('loginBtn').style.display = 'none';
+            document.getElementById('logoutBtn').style.display = 'inline';
+            document.getElementById('profileBtn').style.display = 'inline';
+        } else {
+            // Kullanıcı giriş yapmamışsa, Giriş Yap butonunu göster
+            document.getElementById('loginBtn').style.display = 'inline';
+            document.getElementById('logoutBtn').style.display = 'none';
+            document.getElementById('profileBtn').style.display = 'none';
+        }
+    </script>
+
+    <!-- Kampanya Banner -->
+    <section class="kampanya-banner">
+        <img src="https://avatars.mds.yandex.net/i?id=35c77cb2370cb5bc2c68e5ffcaed637d6e2a4307-10921454-images-thumbs&n=13"
+            alt="Kampanya">
+        <div class="kampanya-text">
+            <h2>1 Alana 2'ncisi %50 İndirimli</h2>
+            <p>Açılışa Özel kampanyalarımızı kaçırmayın.</p>
+            <a href="menu.html" class="kampanya-btn">Hemen Sipariş Ver</a>
+        </div>
+    </section>
+
+    <section class="menu-section">
+        <h2>En Çok Beğenilenler</h2>
+        <div class="menu-container">
+            <div class="menu-item">
+                <img src="https://avatars.mds.yandex.net/i?id=bef4bb025dbbb95e0f9742337e4f3f2693f65039-3910716-images-thumbs&n=13"
+                    alt="Et Yemeği">
+                <h3>Tavuk Kanat</h3>
+                <p>Dışı çıtır, içi yumuşacık; tavuk kanat, her ısırıkta lezzet patlaması</p>
+
+            </div>
+            <div class="menu-item">
+                <img src="https://cdn.bolgegundem.com.tr/news/1058464.jpg" alt="Kebap">
+                <h3>Adana Kebap</h3>
+                <p>Odun ateşinde pişirilmiş enfes Adana kebap.</p>
+            </div>
+            <div class="menu-item">
+                <img src="https://avatars.mds.yandex.net/i?id=7c807e738fc86a192f9f23ca4c62f71cc9bbe6ac-5870396-images-thumbs&n=13"
+                    alt="Steak">
+                <h3>Lahmacun</h3>
+                <p>İncecik hamuru ve nefis harcıyla, her lokmada doyumsuz lezzet </p>
+                <br>
+
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+    <!--  Footer -->
+    <footer>
+        <p>© 2025 Baran Et Restaurant. Tüm hakları saklıdır.</p> <!-- Telif hakkı bilgisi -->
+    </footer>
+
+</body>
+
+</html>

@@ -1,0 +1,246 @@
+/* Genel Stil */
+body {
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.top-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  background-color: #fff;
+}
+
+.logo-title-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  /* Logo ve yazı arasındaki boşluk */
+}
+
+.logo {
+  width: 50px;
+  height: auto;
+}
+
+.site-title {
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+}
+
+/* Header */
+.top-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 15px;
+  background-color: black;
+  color: white;
+}
+
+.top-header .logo-container img {
+  width: 60px;
+  height: auto;
+}
+
+.top-header nav {
+  flex-grow: 1;
+  text-align: center;
+}
+
+.top-header .nav-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.top-header .nav-links li {
+  margin: 0 15px;
+}
+
+.top-header .nav-links a {
+  text-decoration: none;
+  color: white;
+  font-size: 1.1em;
+  font-weight: bold;
+}
+
+.top-header .user-options {
+  display: flex;
+  align-items: center;
+}
+
+.top-header .user-options .login-btn,
+.top-header .user-options .cart-icon {
+  margin-left: 15px;
+  color: white;
+  text-decoration: none;
+  font-size: 1.2em;
+}
+
+
+/*  Rezervasyon Bölümü */
+.reservation-section {
+  padding: 40px 20px;
+  /* Bölüm içeriğine geniş boşluk ekler */
+  background-color: #f4f4f4;
+  /* Krem bej tonu */
+  text-align: center;
+  /* İçeriği ortala */
+}
+
+/*  Rezervasyon Formu */
+.reservation-form {
+  display: flex;
+  /* Form elemanlarını dikey hizala */
+  flex-direction: column;
+  /* Elemanları alt alta yerleştir */
+  gap: 15px;
+  /* Elemanlar arası boşluk */
+  max-width: 500px;
+  /* Formun maksimum genişliği */
+  margin: 0 auto;
+  /* Sayfa ortasına hizala */
+  padding: 20px;
+  /* İç boşluk */
+  background-color: white;
+  /* Açık gri arka plan */
+  border-radius: 10px;
+  /* Köşeleri yuvarlat */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  /* Hafif gölge efekti */
+}
+
+/*  Form Elemanları (Input, Select, Textarea) */
+.reservation-form input,
+.reservation-form select,
+.reservation-form textarea {
+  padding: 12px 15px;
+  /* İç boşluk */
+  font-size: 1rem;
+  /* Yazı boyutu */
+  border-radius: 8px;
+  /* Köşeleri yuvarlat */
+  border: 1px solid #ccc;
+  /* Açık gri kenarlık */
+  background-color: #fff;
+  /* Beyaz arka plan */
+  transition: border 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+/* Form Elemanlarına Odaklanıldığında */
+.reservation-form input:focus,
+.reservation-form select:focus,
+.reservation-form textarea:focus {
+  border-color: #ff6347;
+  /* Kenarlık kırmızımsı turuncuya döner */
+  outline: none;
+  /* Varsayılan mavi odak çerçevesini kaldır */
+  box-shadow: 0 0 8px rgba(255, 99, 71, 0.3);
+  /* Hafif kırmızımsı turuncu parlama */
+}
+
+/*  Textarea Genişlik ve Yüksekliği */
+.reservation-form textarea {
+  resize: vertical;
+  /* Kullanıcı dikey olarak büyütebilir/küçültebilir */
+}
+
+/*  Buton Stili */
+.reservation-form button {
+  padding: 12px 20px;
+  /* Buton iç boşluk */
+  font-size: 1.1rem;
+  /* Yazı boyutu */
+  background-color: #ff6347;
+  /* Kırmızımsı turuncu buton rengi */
+  color: white;
+  /* Beyaz yazı */
+  border: none;
+  /* Kenarlık kaldır */
+  border-radius: 8px;
+  /* Köşeleri yuvarlat */
+  cursor: pointer;
+  /* İmleci el şekline dönüştür */
+  transition: background-color 0.3s ease;
+}
+
+/*  Buton Hover (Üzerine Gelince) */
+.reservation-form button:hover {
+  background-color: #ff4500;
+  /* Daha koyu turuncu */
+}
+
+/*  Saat Seçim Kutusu Stili */
+.reservation-form select[name="time"] {
+  padding: 12px 15px;
+  /* İç boşluk */
+  font-size: 1rem;
+  /* Yazı boyutu */
+  border-radius: 8px;
+  /* Köşeleri yuvarlat */
+  border: 1px solid #ccc;
+  /* Açık gri kenarlık */
+  background-color: #fff;
+  /* Beyaz arka plan */
+  transition: border 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  max-height: 200px;
+  /* Seçim kutusunun maksimum yüksekliği */
+  overflow-y: auto;
+  /* Kaydırma çubuğu ekler */
+}
+
+/*  Saat Seçim Kutusuna Odaklanınca */
+.reservation-form select[name="time"]:focus {
+  border-color: #ff6347;
+  /* Kenarlık rengi değişir */
+  outline: none;
+  box-shadow: 0 0 8px rgba(255, 99, 71, 0.3);
+}
+
+/*  Footer (Alt Kısım) */
+footer {
+  background-color: black;
+  /* Koyu mavi arka plan */
+  color: white;
+  /* Beyaz metin */
+  text-align: center;
+  /* Ortaya hizala */
+  padding: 20px 0;
+  /* Üst-alt boşluk */
+  font-size: 1.2em;
+  /* Yazı boyutu */
+}
+
+/* logout-btn butonunun stilini düzenle */
+.logout-btn {
+  text-decoration: none;
+  /* Altını çizme */
+  color: #fff;
+  /* Yazı rengini beyaz yap */
+  background-color: black;
+  /* Çıkış butonunun kırmızı arka plan rengi */
+  padding: 10px 20px;
+  /* Butonun iç boşluğu */
+  border-radius: 5px;
+  /* Kenarlarını yuvarlak yap */
+  font-weight: bold;
+  /* Yazıyı kalın yap */
+}
+
+.logout-btn:hover {
+  background-color: #d32f2f;
+  /* Hover durumunda koyu kırmızı arka plan */
+  color: #fff;
+  /* Hover durumunda beyaz yazı rengi */
+}
+
+.nav-links li a:hover {
+  color: #ffcc00;
+}
