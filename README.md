@@ -52,7 +52,22 @@ http://127.0.0.1:8000/
 
 
 Proje Görselleri 
+
 <img width="1552" alt="1" src="https://github.com/user-attachments/assets/7cad336c-78ad-4bad-9446-b6d3eacf2042" />
+
+<img width="1552" alt="1" src="https://github.com/user-attachments/assets/bac5f24d-1085-42dc-9cf9-da8717466d67" />
+
+<img width="1552" alt="1" src="https://github.com/user-attachments/assets/0a96601d-54af-4caf-b4a1-cdca151b1da5" />
+
+<img width="1552" alt="1" src="https://github.com/user-attachments/assets/6ad63f7d-ac0b-487c-afd5-cb3ef5ddbb58" />
+
+<img width="1552" alt="1" src="https://github.com/user-attachments/assets/de41ccd4-7cf9-4673-ba86-3da6c545e257" />
+
+
+
+
+
+
 
 
 
